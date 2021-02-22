@@ -88,6 +88,7 @@ app.get("/auth/google", async (req, res) => {
   });
   /// get jwt
   console.log(googleUser);
+  res.send(googleUser);
   //   res.redirect(process.env.UI_ROOT_URL);
 });
 
