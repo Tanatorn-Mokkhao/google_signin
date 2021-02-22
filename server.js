@@ -12,7 +12,8 @@ app.use(cors());
 function getGoogleAuthURL() {
   const rootUrl = "https://accounts.google.com/o/oauth2/v2/auth";
   const options = {
-    redirect_uri: `${process.env.SERVER_ROOT_URL}/auth/google`,
+    // redirect_uri: `${process.env.SERVER_ROOT_URL}/auth/google`,
+    redirect_uri: ` https://gmaillogin12.herokuapp.com/auth/google/`,
     client_id: process.env.GOOGLE_CLIENT_ID,
     access_type: "offline",
     prompt: "consent",
@@ -61,7 +62,8 @@ app.get("/auth/google", async (req, res) => {
     code,
     process.env.GOOGLE_CLIENT_ID,
     process.env.GOOGLE_CLIENT_SECRET,
-    `${process.env.SERVER_ROOT_URL}/auth/google`
+    // `${process.env.SERVER_ROOT_URL}/auth/google`,
+    "https://gmaillogin12.herokuapp.com/auth/google/"
   );
   // googleUser get data user
   const googleUser = await axios
